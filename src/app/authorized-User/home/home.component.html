@@ -1,0 +1,31 @@
+<div class="p-grid">
+    <div class="p-col-2 sideBar">
+        <div *ngFor="let itemDetail of itemDetails; let indexValue = index"
+            (click)="selectedItem(itemDetail,indexValue)">
+            {{itemDetail.item}}
+
+        </div>
+    </div>
+    <div>
+        <div *ngIf="!anyItemSelected">
+            <h2>Welcome to test application</h2>
+        </div>
+        <div *ngIf="anyItemSelected">
+            <form [formGroup]="myFormGroup" (ngSubmit)="onSubmit()">
+                <h2>You selected {{selectedItemDetails.item}}</h2>
+                <div *ngFor="let form_elem of form_template; let filedValue = index ">
+                    <div [ngSwitch]="form_elem.type">
+                        <div *ngSwitchCase="'textBox'">
+                            <div>
+                                field {{filedValue + 1}}
+                            </div>
+                            <input type="text" formControlName="{{form_elem.label}}" />
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Submit" /><br>
+                <input type="submit" (click)="reset()" value="Reset" />
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div [formGroup]="loginForm">
+    <div class="container loginContainer">
+        <div class="p-grid p-offset-4">
+            <div class="p-col-2 p-col-align-center"><label>UserName</label></div>
+            <div class="p-col-10"><input type="text" pInputText formControlName="UserName" />
+            </div>
+        </div>
+        <div class="p-grid p-offset-4">
+            <div class="p-col-2 p-col-align-center"><label>Password</label></div>
+            <div class="p-col-10"><input type="password" pInputText formControlName="Password" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="p-grid p-offset-5 loginButton">
+        <p-button label="Login" (onClick)="navigateToHome()"></p-button>
+    </div>
+</div>
